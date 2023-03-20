@@ -44,7 +44,7 @@ ul a {
   padding: 15px;
   font-size: 16px;
 }
-ul a:hover {
+ul li a:hover {
   /* color: navy; */
   background-color: rgba(128, 128, 128, 0.076);
   cursor: pointer;
@@ -64,13 +64,13 @@ input[type="button"]:hover {
 .signup {
   background-color: #e85e23;
   color: #fff;
-
   /* margin-left: 15px; */
   font-weight: 600;
   border: hidden;
   width: 88px;
   height: 36px;
 }
+
 .login {
   font-weight: 600;
   font-size: 16px;
@@ -86,6 +86,7 @@ input[type="button"]:hover {
   margin-left: auto;
   padding: 3px;
 }
+
 /* nav bar end */
 /* Drop Menu start */
 .dropMenu {
@@ -94,7 +95,7 @@ input[type="button"]:hover {
   background-color: #ffff;
   position: absolute;
   gap: 15px;
-  opacity: 0;
+  /* opacity: 0; */
   border-radius: 15px;
   z-index: 999;
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
@@ -116,6 +117,7 @@ input[type="button"]:hover {
 }
 .dropMenu ul a:hover {
   background-color: #5596f656;
+  cursor: pointer;
 }
 
 .dropMenuLink {
@@ -123,13 +125,14 @@ input[type="button"]:hover {
 }
 .dropMenuLink:hover + .dropMenu {
   display: flex;
-  opacity: 1;
+  /* opacity: 1; */
   z-index: 999;
 }
 .dropMenu:hover {
   display: flex;
   opacity: 1;
   z-index: 999;
+  cursor: pointer;
 }
 .caret {
   width: 20px;
@@ -518,6 +521,7 @@ h6 span {
   display: none;
   background-color: transparent;
 }
+
 footer {
   margin-top: 100px;
   background-color: #333;
@@ -554,21 +558,32 @@ footer {
   }
 
   nav {
-    display: flex;
     flex-direction: column;
     align-items: flex-start;
     display: none;
+    animation: slideDown 0.3s ease-in-out;
+  }
+  @keyframes slideDown {
+    0% {
+      transform: translateY(-1000px);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
 
   .hamburger {
     display: block;
     padding: 15px;
     cursor: pointer;
-    float: right;
+    position: fixed;
+    /* position: relative; */
+    top: 0;
+    right: 0;
+    z-index: 1001;
   }
-
-  .hamburger:focus + nav {
-    display: flex;
+  .hamburger:hover {
+    cursor: pointer;
   }
 
   nav ul {
@@ -656,18 +671,22 @@ footer {
     transform: translate(10px, 0);
     background-color: #e85e23;
   }
-  /* .hamburger span:nth-child(1) {
+
+  .topBarRotate {
     transform: translate(0, -2px) rotate(45deg);
     background-color: #e85e23;
-  } */
-  /* .hamburger span:nth-child(3) {
+  }
+  .bottomBarRotate {
     transform: translate(-3px, 3px) rotate(-45deg);
     background-color: #e85e23;
-  } */
-  /* .hamburger span:nth-child(2) {
+  }
+  .middleBarTranslate {
     opacity: 0;
     transform: translate(15px);
-  } */
+  }
+  .menuShow {
+    display: flex;
+  }
 
   /* #test:hover .burger2 {
     transform: translate(10px, 0);
