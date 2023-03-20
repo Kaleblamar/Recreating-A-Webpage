@@ -8,6 +8,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+.navLogoMobile {
+  display: none;
+}
 /* nav bar start */
 nav {
   position: fixed;
@@ -22,7 +25,7 @@ nav {
 }
 .navLogo {
   margin-right: 30px;
-  margin-left: 30px;
+  /* margin-left: 30px; */
   width: 175px;
 }
 nav ul {
@@ -79,8 +82,8 @@ input[type="button"]:hover {
   padding: 0;
 }
 .navButtons {
-  position: absolute;
-  right: 36px;
+  float: right;
+  margin-left: auto;
   padding: 3px;
 }
 /* nav bar end */
@@ -109,7 +112,7 @@ input[type="button"]:hover {
   display: flex;
   align-items: center;
   gap: 3px;
-  z-index: 999;
+  /* z-index: 999; */
 }
 .dropMenu ul a:hover {
   background-color: #5596f656;
@@ -139,7 +142,7 @@ input[type="button"]:hover {
   justify-content: center;
   align-items: center;
   /* gap: 40px; */
-  /* width: 73%; */
+  width: 100%;
   margin: 0px auto;
   padding: 86px 80px;
   background-color: #f7faff;
@@ -236,12 +239,7 @@ blockquote {
   margin-top: 20px;
   position: relative;
 }
-/* blockquote::after {
-  content: url(./Images/discussion-alpaca.png);
-  position: absolute;
-  left: 450px;
-  top: 0px;
-} */
+
 .discussionImage {
   width: 400px;
 }
@@ -474,7 +472,7 @@ h6 span {
 }
 .RecreatedBy {
   background-color: #fff;
-  width: 70%;
+  width: 100%;
   border-radius: 20px;
   text-align: center;
   padding: 100px;
@@ -515,8 +513,163 @@ h6 span {
   margin: 0 auto;
   padding: 20px;
 }
+.hamburger {
+  border: hidden;
+  display: none;
+  background-color: transparent;
+}
 footer {
   margin-top: 100px;
   background-color: #333;
   height: 50vh;
+}
+@media (min-width: 700px) and (max-width: 1200px) {
+  .cards {
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    overflow-y: hidden;
+  }
+
+  .card1 {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 40%;
+    scroll-snap-align: start;
+    /* flex: 0 0 100%; */
+  }
+  .card1:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 699.99px) {
+  section {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero h1 {
+    font-size: 10vw;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    padding: 15px;
+    cursor: pointer;
+    float: right;
+  }
+
+  .hamburger:focus + nav {
+    display: flex;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+  .navLogo {
+    display: none;
+  }
+  .navLogoMobile {
+    display: inline-block;
+    float: left;
+    width: 175px;
+    padding: 10px;
+    /* margin-left: 20px; */
+  }
+  .dropMenu {
+    gap: 0;
+    width: 100%;
+  }
+  .dropMenu ul {
+  }
+
+  .dropMenu ul li {
+    padding: 2px;
+  }
+  .dropMenu ul a {
+    line-height: 1;
+  }
+
+  .heroHeader {
+    /* background-color: #9f370a; */
+    width: fit-content;
+  }
+  .heroImage {
+    width: 450px;
+  }
+
+  .cards {
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    overflow-y: hidden;
+  }
+
+  .card1 {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+  }
+  .card1:hover {
+    transform: none;
+  }
+  .myPic {
+    width: 180px;
+    height: 250px;
+    left: 0;
+    top: 0%;
+  }
+  .last {
+    width: 100%;
+  }
+  .RecreatedBy {
+    width: min-content;
+    padding: 70px;
+  }
+
+  .hamburger span {
+    display: block;
+    background-color: #5596f6;
+    width: 33px;
+    height: 5px;
+    border-radius: 10px;
+  }
+  .hamburger span:nth-child(2) {
+    margin: 5px 0;
+  }
+  .hamburger span {
+    transform-origin: 0 0;
+    transition: 0.4s;
+  }
+  .hamburger:hover span:nth-child(2) {
+    transform: translate(10px, 0);
+    background-color: #e85e23;
+  }
+  /* .hamburger span:nth-child(1) {
+    transform: translate(0, -2px) rotate(45deg);
+    background-color: #e85e23;
+  } */
+  /* .hamburger span:nth-child(3) {
+    transform: translate(-3px, 3px) rotate(-45deg);
+    background-color: #e85e23;
+  } */
+  /* .hamburger span:nth-child(2) {
+    opacity: 0;
+    transform: translate(15px);
+  } */
+
+  /* #test:hover .burger2 {
+    transform: translate(10px, 0);
+  } */
 }
